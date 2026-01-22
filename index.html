@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkForce Connect | Blue Collar Hiring Solutions</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    werew
+    <style>
+        :root {
+            --primary: #2c5aa0;
+            --secondary: #ff8c00;
+            --dark: #1a365d;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .btn-custom {
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            background-color: #e67e00;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #1e4a8a;
+        }
+        
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary) !important;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--dark) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+        
+        .navbar-nav .dropdown-menu {
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(44, 90, 160, 0.85), rgba(44, 90, 160, 0.9)), url('https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .trusted-badge {
+            background-color: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+            border: none;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            background-color: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .contact-info-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        
+        .form-control {
+            padding: 12px 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(44, 90, 160, 0.25);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-section {
+                padding: 140px 0 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-section {
+                padding: 120px 0 60px;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+        }
+        
+        .bg-light-custom {
+            background-color: var(--light) !important;
+        }
+        
+        .service-dropdown .dropdown-item {
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-dropdown .dropdown-item:hover {
+            background-color: rgba(44, 90, 160, 0.1);
+            padding-left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">WorkForce<span>Connect</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Our Services
+                        </a>
+                        <ul class="dropdown-menu service-dropdown" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#services">All Services</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#delivery">Delivery Personnel</a></li>
+                            <li><a class="dropdown-item" href="#field">Field Executives</a></li>
+                            <li><a class="dropdown-item" href="#telecaller">Tele Callers</a></li>
+                            <li><a class="dropdown-item" href="#survey">Survey & Market Activities</a></li>
+                            <li><a class="dropdown-item" href="#promotional">Promotional Work</a></li>
+                            <li><a class="dropdown-item" href="#kyc">Onboarding & KYC</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="trusted-badge">
+                <p class="mb-0"><i class="fas fa-check-circle me-2"></i> Trusted by 500+ Companies</p>
+            </div>
+            <h1 class="mb-4">Hire Skilled <span style="color: #ff8c00;">Blue Collar</span> Workforce</h1>
+            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Connect with verified delivery personnel, field executives, tele callers, and more. Get your team deployed in 48-72 hours.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#contact" class="btn btn-custom">Hire Now</a>
+                <a href="#services" class="btn btn-custom btn-primary-custom">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-light-custom py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">10,000+</div>
+                        <p>Active Workers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">25+</div>
+                        <p>Cities Covered</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">50,000+</div>
+                        <p>Successful Deployments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About WorkForce Connect</h2>
+                <p class="text-muted">Your trusted partner for blue collar hiring solutions across India</p>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="About Workforce Connect" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Connecting Businesses with Skilled Workforce</h3>
+                    <p class="mb-4">WorkForce Connect specializes in providing reliable, verified blue-collar workforce for businesses across India. With our extensive network and rigorous verification process, we ensure you get the right personnel for your specific needs.</p>
+                    <p class="mb-4">We understand that time is critical when it comes to workforce deployment. That's why we've streamlined our process to deliver qualified personnel within 48-72 hours of requirement.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>Verified Candidates</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>Quick Deployment</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>Pan-India Coverage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding bg-light-custom" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p class="text-muted">Comprehensive manpower solutions for all your blue collar hiring needs</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Delivery Personnel -->
+                <div class="col-lg-4 col-md-6" id="delivery">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Delivery Personnel">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Delivery Personnel</h4>
+                            <p class="mb-0">Reliable delivery boys and logistics staff for your last-mile delivery needs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Field Executives -->
+                <div class="col-lg-4 col-md-6" id="field">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Field Executives">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Field Executives</h4>
+                            <p class="mb-0">Skilled field staff for sales, collections, and on-ground operations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tele Callers -->
+                <div class="col-lg-4 col-md-6" id="telecaller">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tele Callers">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Tele Callers</h4>
+                            <p class="mb-0">Professional tele-calling staff for customer support and lead generation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Survey & Market Activities -->
+                <div class="col-lg-4 col-md-6" id="survey">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Survey & Market Activities">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Survey & Market Activities</h4>
+                            <p class="mb-0">Trained personnel for market research, surveys, and data collection.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Promotional Work -->
+                <div class="col-lg-4 col-md-6" id="promotional">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1551650976-6de8f6e0d0c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Promotional Work">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Promotional Work</h4>
+                            <p class="mb-0">Brand ambassadors and promotional staff for marketing campaigns.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Onboarding & KYC -->
+                <div class="col-lg-4 col-md-6" id="kyc">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1572025443061-3e7a9b6e7b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Onboarding & KYC">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Onboarding & KYC</h4>
+                            <p class="mb-0">Complete verification, onboarding, and KYC documentation services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section-padding" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p class="text-muted">Simple, fast, and efficient process to get your workforce ready</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Tell Us Your Needs</h4>
+                        <p>Share your manpower requirements and job specifications</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>We Source & Screen</h4>
+                        <p>Our team finds and verifies qualified candidates</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Quick Deployment</h4>
+                        <p>Get your workforce deployed within 48-72 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section-padding bg-light-custom" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p class="text-muted">Experience the difference with our reliable and professional workforce solutions</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h4>Verified Workforce</h4>
+                        <p>All candidates undergo thorough background verification and KYC</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Quick Turnaround</h4>
+                        <p>Deploy manpower within 48-72 hours of requirement</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>Flexible Hiring</h4>
+                        <p>Daily, weekly, monthly or project-based hiring options</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h4>Pan-India Coverage</h4>
+                        <p>Service availability across major cities in India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p class="text-muted">Don't just take our word for it - hear from businesses we've helped</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "WorkForce Connect helped us scale our delivery operations quickly. Their verified personnel are reliable and professional."
+                        </div>
+                        <div class="testimonial-author">Rajesh Kumar</div>
+                        <div class="text-muted">QuickDelivery Pvt Ltd</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "We've been using their field executive services for 6 months. Excellent quality and quick deployment!"
+                        </div>
+                        <div class="testimonial-author">Priya Sharma</div>
+                        <div class="text-muted">RetailMart</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding bg-light-custom" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Started Today</h2>
+                <p class="text-muted">Fill out the form below and our team will get back to you within 24 hours</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="contact-info-card">
+                        <h4 class="mb-4">Contact Information</h4>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p class="mb-1">+91 98765 43210</p>
+                                <p class="mb-0">+91 67135 55820 (Cuttack Office)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p class="mb-0">contact@workforceconnect.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Regional Office (Cuttack)</h5>
+                                <p class="mb-0">Plot No -340/3666, Opposite lane of Sunny Motors, Kanika New Colony, Cuttack 753008</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div class="contact-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h5>Quick Response Guarantee</h5>
+                                <p class="mb-0">Our team responds to all inquiries within 24 hours and can deploy workforce within 48-72 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="bg-white p-4 rounded shadow-sm">
+                        <form id="hiringForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="fullName" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" placeholder="john@company.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="+91 98765 43210" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="company" class="form-label">Company Name</label>
+                                    <input type="text" class="form-control" id="company" placeholder="Your Company">
+                                </div>
+                                <div class="col-12">
+                                    <label for="service" class="form-label">Service Required *</label>
+                                    <select class="form-select" id="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="delivery">Delivery Personnel</option>
+                                        <option value="field">Field Executives</option>
+                                        <option value="telecaller">Tele Callers</option>
+                                        <option value="survey">Survey & Market Activities</option>
+                                        <option value="promotional">Promotional Work</option>
+                                        <option value="onboarding">Onboarding & KYC</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Tell us about your requirements..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-custom">Submit Requirement</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="mb-4">WorkForce Connect</h4>
+                    <p>Your trusted partner for blue collar hiring solutions. Connecting businesses with skilled workforce across India.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <div class="footer-links d-flex flex-column">
+                        <a href="#home" class="mb-2">Home</a>
+                        <a href="#about" class="mb-2">About Us</a>
+                        <a href="#services" class="mb-2">Our Services</a>
+                        <a href="#contact" class="mb-2">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">Services</h5>
+                    <div class="footer-links d-flex flex-column">
+                        <a href="#delivery" class="mb-2">Delivery Personnel</a>
+                        <a href="#field" class="mb-2">Field Executives</a>
+                        <a href="#telecaller" class="mb-2">Tele Callers</a>
+                        <a href="#survey" class="mb-2">Survey Work</a>
+                        <a href="#kyc" class="mb-2">KYC Services</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">Contact</h5>
+                    <div class="footer-links d-flex flex-column">
+                        <div class="mb-2">
+                            <i class="fas fa-phone-alt me-2"></i>
+                            +91 98765 43210
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            contact@workforceconnect.com
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            Cuttack, Odisha
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2026 WorkForce Connect. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light me-3">Terms of Service</a>
+                    <a href="#contact" class="text-light">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Form submission
+        document.getElementById('hiringForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Show success message
+            alert(`Thank you ${name}! Your requirement for ${service} has been submitted. Our team will contact you within 24 hours at ${phone} or ${email}.`);
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if(navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
+                }
+            });
+        });
+        
+        // Initialize dropdowns
+        const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+        const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl));
+    </script>
+</body>
+</html>
